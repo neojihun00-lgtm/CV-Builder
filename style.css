@@ -1,0 +1,36 @@
+
+        :root {
+            --brand: #6366f1;
+            --brand-dark: #4f46e5;
+            --sidebar-bg: #ffffff;
+            --canvas-bg: #f8fafc;
+            --text-main: #1e293b;
+        }
+
+        body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; background: var(--canvas-bg); color: var(--text-main); display: flex; height: 100vh; overflow: hidden; }
+
+        /* --- SIDEBAR --- */
+        #editor { width: 420px; background: var(--sidebar-bg); border-right: 1px solid #e2e8f0; display: flex; flex-direction: column; box-shadow: 10px 0 30px rgba(0,0,0,0.02); z-index: 10; }
+        .editor-header { padding: 25px; background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); color: white; }
+        .editor-content { padding: 20px; overflow-y: auto; flex: 1; }
+
+        /* --- DYNAMIC INPUTS --- */
+        .list-item { display: flex; gap: 8px; margin-bottom: 8px; }
+        .btn-add { background: #eff6ff; color: var(--brand); border: 1px dashed var(--brand); padding: 8px; border-radius: 8px; width: 100%; cursor: pointer; font-size: 12px; font-weight: 700; margin-bottom: 15px; transition: 0.2s; }
+        .btn-add:hover { background: var(--brand); color: white; }
+        .btn-del { background: #fee2e2; color: #ef4444; border: none; padding: 0 12px; border-radius: 8px; cursor: pointer; }
+
+        /* --- PREVIEW --- */
+        #preview-pane { flex: 1; background: #0f172a; display: flex; justify-content: center; padding: 40px 20px; overflow-y: auto; background-image: radial-gradient(#334155 1px, transparent 1px); background-size: 25px 25px; }
+        #cv-paper { width: 210mm; min-height: 297mm; background: white; box-shadow: 0 25px 50px rgba(0,0,0,0.5); transform-origin: top center; }
+
+        /* --- UI --- */
+        .field-group { margin-bottom: 20px; }
+        .field-label { font-size: 0.7rem; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: block; }
+        .modern-input { width: 100%; padding: 10px 14px; border: 1px solid #e2e8f0; border-radius: 8px; background: #f8fafc; font-size: 14px; box-sizing: border-box; }
+        .template-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 20px; background: #f8fafc; border-left: 1px solid #e2e8f0; width: 280px; overflow-y: auto; }
+        .tmpl-card { background: white; border: 2px solid #e2e8f0; border-radius: 12px; padding: 12px; cursor: pointer; text-align: center; font-size: 11px; font-weight: 700; }
+        .tmpl-card.active { border-color: var(--brand); background: #eff6ff; color: var(--brand); }
+        #download-btn { margin: 20px; padding: 15px; background: var(--brand); color: white; border: none; border-radius: 12px; font-weight: 800; cursor: pointer; box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3); }
+
+        @media print { .no-print { display: none !important; } #preview-pane { padding: 0; background: none; } #cv-paper { box-shadow: none; transform: none !important; } }
