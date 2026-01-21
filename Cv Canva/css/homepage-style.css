@@ -1,0 +1,35 @@
+/* Specific Styles for Home Page Improvements */
+    
+    /* Template Preview Cards */
+    .template-card {
+        transition: transform 0.3s ease;
+        cursor: pointer;
+        overflow: hidden;
+    }
+    .template-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 1rem 3rem rgba(0,0,0,.15) !important;
+    }
+    .template-mockup {
+        height: 200px;
+        background-color: #f8f9fa;
+        position: relative;
+        overflow: hidden;
+    }
+    /* CSS to draw a mini-CV inside the cards */
+    .mini-cv-line { height: 8px; background: #dee2e6; margin-bottom: 8px; border-radius: 4px; }
+    .mini-cv-header { height: 40px; background: #e9ecef; margin-bottom: 15px; }
+    .w-40 { width: 40%; } .w-60 { width: 60%; } .w-80 { width: 80%; }
+
+    /* Template Variations for Mockups */
+    .t-modern .mini-cv-header { background: #cfe2ff; } /* Blue */
+    .t-bold .mini-cv-header { background: #212529; } /* Black */
+    .t-classic .mini-cv-header { text-align: center; background: transparent; border-bottom: 2px double #ccc; }
+
+    /* Testimonial Avatars */
+    .avatar-box {
+        width: 60px; height: 60px;
+        background: #e9ecef;
+        display: flex; align-items: center; justify-content: center;
+        font-weight: bold; color: #6c757d;
+    }

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Builder</title>
+  <link rel="icon" type="image/svg" href="logo.svg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/Cv Canva/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="/Cv Canva/images/logo.svg" type="image/svg">
+</head>
+<body class="bg-light">
+
+<!-- <nav class="navbar navbar-dark bg-dark mb-4 no-print">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><img src="logo.svg" alt="cv canva logo" height="50px"/> ATS Friendly CV Builder </a>
+  </div>
+</nav> -->
+
+<nav class="d-flex justify-content-center text-white fw-bold p-4 gap-2 bg-dark align-items-center">
+  <a class="col-4 nav-link" href="/Cv Canva/index.html"><i class="fa-solid fa-arrow-left ms-2"></i> Back to Home</a>
+  <div class="col-4 d-flex gap-3 align-items-center"><img src="/Cv Canva/images/logo.svg" alt="logo" height="50px"><h4 class="mt-3">Create your ATS Friendly Resume<h4></div>
+  <div class="col-4"></div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    
+    <div class="col-md-4 no-print input-section">
+      <div class="p-3 bg-white shadow-sm rounded">
+        
+        <div class="mb-3">
+            <label class="form-label fw-bold">Select Template</label>
+            <select class="form-select" id="templateSelector" onchange="changeTemplate()">
+                <option value="template-simple">Simple (Black Accent)</option>
+                <option value="template-modern">Modern (Blue Accent)</option>
+                <option value="template-classic">Classic (Elegant Serif)</option>
+                <option value="template-creative">Creative (Elegant Serif)</option>
+                <option value="template-bold">Bold (High Contrast)</option>
+            </select>
+        </div>
+
+        <div class="accordion" id="cvAccordion">
+          
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePersonal">Personal Details</button></h2>
+            <div id="collapsePersonal" class="accordion-collapse collapse show" data-bs-parent="#cvAccordion">
+              <div class="accordion-body">
+                <input type="file" class="form-control mb-2" id="photoInput" accept="image/*" onchange="previewImage()">
+                <input type="text" class="form-control mb-2" id="nameField" placeholder="Full Name" onkeyup="generateCV()">
+                <input type="text" class="form-control mb-2" id="titleField" placeholder="Job Title" onkeyup="generateCV()">
+                <input type="email" class="form-control mb-2" id="emailField" placeholder="Email" onkeyup="generateCV()">
+                <input type="text" class="form-control mb-2" id="phoneField" placeholder="Phone" onkeyup="generateCV()">
+                <input type="text" class="form-control mb-2" id="addressField" placeholder="Address" onkeyup="generateCV()">
+                <input type="text" class="form-control mb-2" id="linkedinField" placeholder="LinkedIn URL" onkeyup="generateCV()">
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEdu">Education</button></h2>
+            <div id="collapseEdu" class="accordion-collapse collapse" data-bs-parent="#cvAccordion">
+              <div class="accordion-body">
+                <textarea class="form-control" id="eduField" rows="3" placeholder="Degree, University, Year" onkeyup="generateCV()"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExp">Experience</button></h2>
+            <div id="collapseExp" class="accordion-collapse collapse" data-bs-parent="#cvAccordion">
+              <div class="accordion-body">
+                <textarea class="form-control" id="expField" rows="4" placeholder="Job Title, Company, Description" onkeyup="generateCV()"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSkills">Skills</button></h2>
+            <div id="collapseSkills" class="accordion-collapse collapse" data-bs-parent="#cvAccordion">
+              <div class="accordion-body">
+                 <textarea class="form-control" id="skillsField" rows="3" placeholder="List skills separated by commas" onkeyup="generateCV()"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSide">Sidebar Details</button></h2>
+            <div id="collapseSide" class="accordion-collapse collapse" data-bs-parent="#cvAccordion">
+              <div class="accordion-body">
+                 <label class="form-label small text-muted">Languages</label>
+                 <input type="text" class="form-control mb-2" id="langField" placeholder="English, Spanish, French" onkeyup="generateCV()">
+                 
+                 <label class="form-label small text-muted">Hobbies</label>
+                 <input type="text" class="form-control mb-2" id="hobbyField" placeholder="Reading, Chess, Traveling" onkeyup="generateCV()">
+
+                 <label class="form-label small text-muted">Achievements</label>
+                 <textarea class="form-control" id="achieveField" rows="3" placeholder="Gold Medalist, Hackathon Winner..." onkeyup="generateCV()"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProj">Projects</button></h2>
+            <div id="collapseProj" class="accordion-collapse collapse" data-bs-parent="#cvAccordion">
+              <div class="accordion-body">
+                 <textarea class="form-control" id="projField" rows="3" placeholder="Project Name: Description..." onkeyup="generateCV()"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePubs">Publications</button></h2>
+            <div id="collapsePubs" class="accordion-collapse collapse" data-bs-parent="#cvAccordion">
+              <div class="accordion-body">
+                 <textarea class="form-control" id="pubsField" rows="3" placeholder="Paper Title, Journal, Year..." onkeyup="generateCV()"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRefs">References</button></h2>
+            <div id="collapseRefs" class="accordion-collapse collapse" data-bs-parent="#cvAccordion">
+              <div class="accordion-body">
+                 <p class="fw-bold mb-1">Reference 1</p>
+                 <input type="text" class="form-control mb-1" id="ref1Name" placeholder="Name" onkeyup="generateCV()">
+                 <input type="text" class="form-control mb-1" id="ref1Job" placeholder="Job Title / Company" onkeyup="generateCV()">
+                 <input type="text" class="form-control mb-1" id="ref1Contact" placeholder="Phone or Email" onkeyup="generateCV()">
+                 <hr>
+                 <p class="fw-bold mb-1">Reference 2</p>
+                 <input type="text" class="form-control mb-1" id="ref2Name" placeholder="Name" onkeyup="generateCV()">
+                 <input type="text" class="form-control mb-1" id="ref2Job" placeholder="Job Title / Company" onkeyup="generateCV()">
+                 <input type="text" class="form-control mb-1" id="ref2Contact" placeholder="Phone or Email" onkeyup="generateCV()">
+              </div>
+            </div>
+          </div>
+        
+        </div> <div class="d-grid gap-2 mt-3">
+            <button onclick="printCV()" class="btn btn-success btn-lg">Download / Print CV</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-8 bg-secondary py-4 d-flex justify-content-center overflow-auto">
+        
+        <div id="cv-template" class="cv-page shadow-lg template-simple">
+            
+            <div class="cv-header d-flex align-items-center pb-4 border-bottom">
+                <img id="cv-photo" src="" class="rounded-circle me-3" style="width: 100px; height: 100px; object-fit: cover; display:none;">
+                <div class="header-text">
+                    <h1 id="nameT" class="text-uppercase fw-bold mb-0">Your Name</h1>
+                    <p id="titleT" class="lead mb-0">Job Title</p>
+                    <div class="contact-info small mt-2">
+                        <span id="phoneT"></span> 
+                        <span id="emailT" class="mx-2"></span> 
+                        <span id="addressT"></span>
+                        <div id="linkedinT" class="mt-1 text-primary"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cv-body row mt-4">
+                
+                <div class="col-md-4 border-end">
+                    
+                    <div class="mb-4">
+                        <h5 class="section-title">Skills</h5>
+                        <ul id="skillsT" class="list-unstyled">
+                            <li>List your skills...</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-4 d-none" id="sec-languages">
+                        <h5 class="section-title">Languages</h5>
+                        <ul id="langT" class="list-unstyled"></ul>
+                    </div>
+
+                    <div class="mb-4 d-none" id="sec-hobbies">
+                        <h5 class="section-title">Hobbies</h5>
+                        <ul id="hobbyT" class="list-unstyled"></ul>
+                    </div>
+
+                    <div class="mb-4 d-none" id="sec-achievements">
+                        <h5 class="section-title">Achievements</h5>
+                        <ul id="achieveT" class="list-unstyled"></ul>
+                    </div>
+
+                </div>
+
+                <div class="col-md-8 ps-4">
+                    <div class="mb-4" id="sec-experience">
+                        <h5 class="section-title">Experience</h5>
+                        <div id="expT" style="white-space: pre-line;"></div>
+                    </div>
+
+                    <div class="mb-4" id="sec-education">
+                        <h5 class="section-title">Education</h5>
+                        <div id="eduT" style="white-space: pre-line;"></div>
+                    </div>
+
+                    <div class="mb-4 d-none" id="sec-projects">
+                        <h5 class="section-title">Projects</h5>
+                        <div id="projT" style="white-space: pre-line;"></div>
+                    </div>
+
+                    <div class="mb-4 d-none" id="sec-publications">
+                        <h5 class="section-title">Publications</h5>
+                        <div id="pubsT" style="white-space: pre-line;"></div>
+                    </div>
+
+                    <div class="mb-4 d-none" id="sec-references">
+                        <h5 class="section-title">References</h5>
+                        <div class="row" id="refsContainer"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div id="footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/Cv Canva/js/script.js"></script>
+<script src="/Cv Canva/js/components-adder.js"></script>
+</body>
+</html>

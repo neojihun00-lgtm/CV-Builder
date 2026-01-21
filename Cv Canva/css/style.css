@@ -1,0 +1,376 @@
+/* Base Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* The A4 Paper Simulation */
+.cv-page {
+    width: 210mm;
+    min-height: 297mm;
+    background: white;
+    padding: 20mm;
+    box-sizing: border-box;
+}
+
+/* Base Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* The A4 Paper Simulation on Screen */
+.cv-page {
+    width: 210mm;
+    min-height: 297mm;
+    background: white;
+    padding: 15mm;
+    margin: 0 auto;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* --- TEMPLATES --- */
+/* --- TEMPLATE 1: Black Accent --- */
+/* .template-simple .section-title {
+    text-transform: uppercase;
+    font-weight: bold;
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+} */
+.template-simple { color: #000; }
+.template-simple .section-title {
+    text-transform: uppercase;
+    font-weight: 800;
+    border-bottom: 2px solid #000;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+/* --- TEMPLATE 2: MODERN --- */
+.template-modern {
+    font-family: 'Helvetica', sans-serif;
+}
+/* .template-modern .cv-header {
+    background-color: #f0f4f8;
+    padding: 20px;
+    border-bottom: none !important;
+    color: #2c3e50;
+} */
+/* .template-modern .section-title {
+    color: #2980b9;
+    border-bottom: 1px solid #2980b9;
+} */
+.template-modern #nameT {
+    color: #2c3e50;
+}
+
+.template-modern .cv-header {
+    background-color: #f0f4f8;
+    padding: 20px;
+    margin: -15mm -15mm 20px -15mm;
+    padding-left: 15mm;
+    color: #2c3e50;
+}
+.template-modern .section-title {
+    color: #2980b9;
+    border-bottom: 1px solid #2980b9;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* =========================================
+   TEMPLATE 3: CLASSIC (Elegant & Centered)
+   ========================================= */
+.template-classic {
+    font-family: 'Georgia', 'Times New Roman', Times, serif;
+    color: #333;
+}
+
+.template-classic .cv-header {
+    /* Stack items vertically and center them */
+    flex-direction: column !important;
+    text-align: center;
+    border-bottom: 1px double #aaa; /* Double line looks very academic */
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.template-classic #cv-photo {
+    margin: 0 auto 15px auto !important; /* Center the image */
+    width: 120px;
+    height: 120px;
+    border: 1px solid #ccc;
+    padding: 3px; /* Frame effect */
+}
+
+.template-classic #nameT {
+    font-size: 2.8rem;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.template-classic #titleT {
+    font-style: italic;
+    color: #555;
+    font-size: 1.2rem;
+}
+
+.template-classic .contact-info {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    font-family: 'Segoe UI', sans-serif; /* Keep contact info readable */
+}
+
+.template-classic .section-title {
+    font-family: 'Segoe UI', sans-serif;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+/* =========================================
+   TEMPLATE 4: BOLD (High Contrast Headers)
+   ========================================= */
+.template-bold {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #222;
+}
+
+.template-bold .cv-header {
+    /* Dark Header Background */
+    background-color: #222;
+    color: #fff;
+    padding: 30px;
+    margin: -15mm -15mm 30px -15mm; /* Stretch to edges */
+    align-items: center;
+}
+
+.template-bold #nameT {
+    color: #fff;
+    font-weight: 900; /* Extra Bold */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.template-bold #titleT {
+    color: #f1c40f; /* Yellow accent color */
+    font-weight: 600;
+}
+
+.template-bold .contact-info {
+    color: #ddd; /* Light grey text */
+}
+
+.template-bold #cv-photo {
+    border: 3px solid #f1c40f; /* Yellow border around photo */
+}
+
+/* Section Headers: Black Background Tags */
+.template-bold .section-title {
+    background-color: #222;
+    color: #fff;
+    padding: 5px 15px;
+    display: inline-block; /* Only wraps the text */
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    border-left: 5px solid #f1c40f; /* Yellow accent tip */
+}
+
+/* Ensure background colors print */
+@media print {
+    .template-bold {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+}
+
+/* =========================================
+   TEMPLATE 4: CREATIVE (Elegant Serif)
+   ========================================= */
+.template-creative {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    color: #444;
+}
+
+.template-creative .cv-header {
+    flex-direction: column;
+    text-align: center;
+    border-bottom: none;
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.template-creative .cv-header::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #d35400;
+    margin: 20px auto 0 auto;
+}
+
+.template-creative #nameT {
+    font-size: 3rem;
+    color: #d35400;
+}
+
+.template-creative .section-title {
+    font-family: 'Segoe UI', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    color: #d35400;
+    border-bottom: 1px dotted #d35400;
+    margin-bottom: 15px;
+    text-align: center;
+}
+/* keeping section titles left aligned for readability in body, 
+   but centered the sidebar */
+.template-creative .col-md-4 .section-title {
+    text-align: right; /* Align sidebar headers to content */
+    border-bottom: none;
+}
+.template-creative .col-md-4 ul {
+    text-align: right;
+}
+
+/* Remove the border between columns for a cleaner look */
+.template-creative .border-end {
+    border-right: none !important;
+}
+
+/* Add a subtle line between items */
+.template-creative li {
+    margin-bottom: 5px;
+}
+
+/* Footer Hover Effect */
+.hover-white:hover {
+    color: #fff !important;
+    padding-left: 5px; /* Small movement animation */
+    transition: all 0.3s ease;
+}
+
+/* Content wrapper to push footer down */
+.container-fluid, .hero-section {
+    flex: 1;
+}
+
+/* --- MODERN FOOTER STYLES --- */
+
+.modern-footer {
+    background-color: #111 !important; /* Darker than standard bg-dark */
+    font-size: 0.9rem;
+}
+
+/* Typography Spacing */
+.ls-1 {
+    letter-spacing: 1px;
+}
+
+/* Link Hover Animation */
+.footer-link {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-link:hover {
+    color: #fff;
+    transform: translateX(5px); /* Moves link to the right on hover */
+}
+
+/* Developer Card (Glass effect) */
+.dev-card {
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.dev-card:hover {
+    transform: translateY(-3px); /* Lifts up slightly */
+    border-color: rgba(13, 202, 240, 0.5) !important; /* Highlights border with Info color */
+}
+
+/* Form Styling */
+.modern-footer .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.modern-footer .form-control:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-color: #0d6efd;
+    box-shadow: none;
+}
+
+/* Utility */
+.fst-italic { font-style: italic !important; }
+
+/* --- PRINT SETTINGS --- */
+@page {
+    size: A4;
+    margin: 0; 
+}
+
+@media print {
+    /* Hide UI elements */
+    .no-print, .navbar, .input-section, .btn {
+        display: none !important;
+    }
+
+    /* Reset Body */
+    body, html {
+        margin: 0;
+        padding: 0;
+        width: 210mm; /* Force A4 width */
+        height: 100%;
+        background-color: white !important;
+        -webkit-print-color-adjust: exact; /* Ensures colors/backgrounds print */
+    }
+
+    /* Target the CV Container */
+    .cv-page {
+        width: 210mm !important;
+        min-height: 297mm !important;
+        margin: 0 !important;
+        padding: 15mm !important; /* Keep internal padding */
+        border: none;
+        box-shadow: none !important;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .cv-body {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+    }
+
+    /* Left Sidebar (Skills/Contact) - Fixed 33% */
+    .col-md-4 {
+        width: 33% !important;
+        flex: 0 0 33% !important;
+        max-width: 33% !important;
+        padding-right: 20px; /* Breathing room */
+    }
+
+    /* Right Main Content - Fixed 67% */
+    .col-md-8 {
+        width: 67% !important;
+        flex: 0 0 67% !important;
+        max-width: 67% !important;
+        padding-left: 20px;
+    }
+}
