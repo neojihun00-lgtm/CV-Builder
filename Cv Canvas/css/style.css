@@ -238,11 +238,11 @@ body {
 /* keeping section titles left aligned for readability in body, 
    but centered the sidebar */
 .template-creative .col-md-4 .section-title {
-    text-align: right; /* Align sidebar headers to content */
+    text-align: left; /* Align sidebar headers to content */
     border-bottom: none;
 }
 .template-creative .col-md-4 ul {
-    text-align: right;
+    text-align: left;
 }
 
 /* Remove the border between columns for a cleaner look */
