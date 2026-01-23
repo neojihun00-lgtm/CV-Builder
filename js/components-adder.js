@@ -6,5 +6,5 @@ function component_adder(id, content){
         .then(data => component.innerHTML = data)
 }
 
-component_adder('header', '/Cv Canvas/components/header.html');
-component_adder('footer', '/Cv Canvas/components/footer.html');
+component_adder('header', '/components/header.html');
+component_adder('footer', '/components/footer.html');
